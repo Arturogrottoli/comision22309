@@ -1,0 +1,55 @@
+1-Instalar GIT -----> https://git-scm.com/downloads
+2-Comprobar instalación haciendo click derecho y viendo si aparecen los comandos, o por consola escribiendo el comando git --version
+3-Crear una cuenta de Github -----> https://www.github.com
+
+4-Una vez creado nuestro proyecto abrimos la terminal de VSC o sino la gitbash
+5-Realizamos por unica vez nuestras configuraciones de nombre y email con los siguientes comandos:
+git config --global user.name "Nombre"
+git config --global user.email "mail@mail.com"
+Se puede chequear que esté todo bien con el comando git config --global -e otra alternativa es git config --global -l
+
+Ahora empezamos a mostrar comandos utiles y como vincular GIT con GITHUB
+
+
+6-Utilizamos el comando git init para inicializar el repositorio local, podemos chequear que haya iniciado con git status
+(Se puede observar que se crea una carpeta oculta .git)
+7-Empezamos a subir los archivos a la zona stage con el comando git add nombredelarchivo (Si usamos git add . lo hace con todos los que haya)
+8-Ahora empaquetamos los archivos usando el git commit -m "mensaje descriptivo" (primer version del repo)
+
+9-Si comienzo a modificar a los archivos me aparece una M al costado del nombre en VSC, haciendo git status puedo ver cuales debo 
+actualizar. si hago git diff me muestra cuales son los cambios. Haciendo git add . de nuevo actualizo todo.
+
+10- Si queremos borrar algun archivo utilizamos el comando git reset HEAD nombredelarchivo
+
+11-Para hacer mas versiones podemos hacer mas commits (ej git commit -m "segundo commit") y si queremos volver al commit anterior
+podemos usar el comando git checkout .
+12- Si queremos ver todos los commits que realizamos existe el comando git log , y para volver a una version especifica del commit 
+usamos git checkout codigoobtenidoenellog
+
+Hasta acá es todo repositorio local, comenzamos con uno remoto.
+
+13-Creacion del repo remoto es en github.com -----> new repository
+14-Sincronizacion del remoto con el local git remote add origin https://DIRECCION DEL REPO NUEVO
+15-Ahora pusheamos el contenido del local al remoto git push -u origin master 
+16-Actualizamos la pagina de github y ya se deberian ver los archivos.
+
+Creación de ramas o branches
+
+17-Si quiero crear una rama uso el comando git branch modificacion
+18-Luego le debemos indicar a git en que rama queremos trabajar, si en la master o modificacion (o usuario 1, usuario 2) usando el comando
+git branch vemos en cual estamos y si ponemos git checkout modificacion cambiamos
+19-Fusion de ramas, si en modificacion agrego archivos y los commiteo si vuelvo a master (git checkout master) esos archivos
+no aparecen. Para unir todo uso un merge, git merge modificacion 
+20-Para borrar la rama bifurcada utilizo el comando git branch -d modificacion
+
+Conflicto en fusion de ramas o branches
+
+21-Creo una rama nueva git branch actualizando y me paro en ella git checkout actualizando , luego modifico algun archivo y 
+lo subo usando git add . y lo comiteo git commit -m "se cambio un archivo"
+Luego vuelvo a master (git checkout master) y lo modifico sin branchear (Hago add y commit nuevamente)
+Si hago un git merge actualizando voy a tener un conflicto porque fue cambiado en dos lugares diferentes (git merge actualizando)
+
+22-El editor de codigo nos muestra el conflicto, debemos elegir cual de las dos partes utilizamos y borrar lo demas.
+
+
+
